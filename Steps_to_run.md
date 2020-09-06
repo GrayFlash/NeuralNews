@@ -10,7 +10,7 @@
      - djn
      - jnjks
      - klnf
-  4. Your package.json file should look like this with the following dependencies :
+  4. Your package.json file should look like this with the following dependencies :  
      (PHOTO)
   5. After successful installation run the following command to start the application :  
      ```npm run dev```  
@@ -19,7 +19,7 @@
   
   * To run ML-model
   1. You can run these notebooks on Jupyter notebook that comes with Conda Environment or you can use google colaboratory for this purpose.
-  2. Anaconda and google colab has all libraries in built which we have used in this project but still if you find them missing then you can the following command in anaconda prompt :  
+  2. Anaconda and google colab has all libraries in built which we have used in this project but still if you find them missing then you can run the following command in anaconda prompt :  
      ```pip install (missing lib)```  
      if using google colab use ```!pip install (missing lib)``` in a cell and run.
   3. Two resource files from nltk library are required, so you can run following commands in cell :  
