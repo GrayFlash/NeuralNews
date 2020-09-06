@@ -11,7 +11,8 @@
      - jnjks
      - klnf
   4. Your package.json file should look like this with the following dependencies :  
-     (PHOTO)
+  
+     ![](Images/packagejson.PNG)
   5. After successful installation run the following command to start the application :  
      ```npm run dev```  
      
