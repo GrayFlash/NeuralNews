@@ -8,6 +8,7 @@
 </head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
 <body>
 
@@ -66,10 +67,38 @@
                     <% } else { %>
                     <h5 style="font-weight: 600; color: green; "> Accuracy : <%= info.label[id].toFixed(2) %> </h5>
                     <% } %>
-                    <div class="text-right">
-                        <a class="btn btn-success" href="">Add New Comment</a>
+                    <div class="d-flex justify-content-between">
+                        <span>
+                            <span style="font-size: 20px;"> Rating : <%=news.upvote+news.downvote%></span>
+
+                            <form id="downvote" action="/news/<%=id%>/downvote?_method=PUT" method="POST"
+                                style="float: right;">
+                                <a onclick="document.getElementById('downvote').submit()"><i
+                                        class="fa fa-thumbs-down ml-3" aria-hidden="true"
+                                        style="padding-top: 10px; font-size: 25px;"></i></a>
+                            </form>
+                            <form id="upvote" action="/news/<%=id%>/upvote?_method=PUT" method="POST"
+                                style="float: right;">
+                                <a onclick="document.getElementById('upvote').submit()"><i class="fa fa-thumbs-up ml-3"
+                                        aria-hidden="true" style="padding-top: 10px; font-size: 25px;"></i></a>
+                            </form>
+                        </span>
+
+                        <a class="btn btn-success" href="/news/<%=id%>/comments/new">Add New Comment</a>
                     </div>
                     <hr>
+                    <% news.comments.forEach(function(comment){ %>
+                    <div class="row">
+                        <div col-md-12>
+                            <strong><%= comment.author.username %></strong>
+                            <!-- <span class="pull-right">10 days ago</span> -->
+                            <p>
+                                <%= comment.text %>
+                            </p>
+
+                        </div>
+                    </div>
+                    <% }); %>
                 </div>
             </div>
         </div>
@@ -82,6 +111,16 @@
     <!-- News Section Ends-->
 
 
+    <script>
+        function Upvote(id) {
+            NewsId.findOne({ id: id }, function (err, news) {
+                if (err)
+                    console.log(err);
+                else
+                    news.Upvote += 1;
+            });
+        }
+    </script>
 
 
 
