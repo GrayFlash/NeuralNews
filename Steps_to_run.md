@@ -6,10 +6,7 @@
      - VS Code ( recommended , Any other suitable code editor will work )
      - npm
   2.	Next you need to fork our project's GitHub repository and then clone it in your local PC.
-  3. Open command line and navigate to the project folder. Then type the following command  ```npm install``` to install required dependencies :
-     - djn
-     - jnjks
-     - klnf
+  3. Open command line and navigate to the project folder. Then type the following command  ```npm install``` to install required dependencies.  
   4. Your package.json file should look like this with the following dependencies :  
   
      ![](Images/packagejson.PNG)
