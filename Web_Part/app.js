@@ -10,6 +10,7 @@ var NewsId = require("./models/newsId");
 var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 var news_data = require("./public/json/news_data.json");
+var page2 = require("./public/json/page2.json");
 var methodOverride = require("method-override");
 var seedDB = require("./seed");
 
@@ -90,6 +91,10 @@ app.get("/", function (req, res) {
     res.render("home.ejs", { info: news_data });
 });
 
+app.get("/home2", function (req, res) {
+    res.render("home2.ejs", { info: page2 });
+});
+
 app.get("/user", function (req, res) {
     res.render("user_profile.ejs");
 });
@@ -101,6 +106,16 @@ app.get("/news/:id", function (req, res) {
         else {
             res.render("news.ejs", { info: news_data, id: req.params.id, news: news, NewsId: NewsId });
         }
+    });
+
+    app.get("/news2/:id", function (req, res) {
+        NewsId.findOne({ id: req.params.id }).populate("comments").exec(function (err, news) {
+            if (err)
+                console.log(err);
+            else {
+                res.render("news.ejs", { info: page2, id: req.params.id, news: news, NewsId: NewsId });
+            }
+        });
     });
 
 });

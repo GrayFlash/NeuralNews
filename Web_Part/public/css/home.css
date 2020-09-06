@@ -1,0 +1,22 @@
+.navbar-light .navbar-nav .nav-link{
+    color: #2109fce6;    
+}
+
+.bg-light{
+    background-color: #e6e8ff;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+  }
+  
+  .pagination a.active {
+    background-color: dodgerblue;
+    color: white;
+  }
+  
+  .pagination a:hover:not(.active) {background-color: #ddd;}
